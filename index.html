@@ -2090,7 +2090,13 @@
 
     <script>
 window.addEventListener("load", function () {
-    document.getElementById("loader").style.display = "none";
+    const loader = document.getElementById("loader");
+
+    loader.classList.add("hide");
+
+    setTimeout(() => {
+        loader.remove();
+    }, 500);
 });
 </script>
 
