@@ -40,6 +40,11 @@ body {
     align-items: center;
 }
 
+#loader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* From Uiverse.io by Juanes200122 */ 
 .pl {
   width: 6em;
