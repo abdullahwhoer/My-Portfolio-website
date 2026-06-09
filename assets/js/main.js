@@ -227,6 +227,23 @@
 })(jQuery);
 
 
+lenis = new Lenis({
+  duration: 1.6,
+  easing: (t) =>
+    t < 3
+      ? 4 * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 3) / 2,
+  smoothWheel: true,
+  wheelMultiplier: 0.9,
+  touchMultiplier: 1.2,
+  infinite: false,
+});
+
+
+
+
+
+
 // Contact form JS
 document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contact-form");

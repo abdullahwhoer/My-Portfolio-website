@@ -13,7 +13,7 @@ html,
 body {
   height: 100%;
   border: 0 !important;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 body {
@@ -827,6 +827,20 @@ a {
 
 .rounded-20 {
   border-radius: 20px;
+   height: 400px; /* visible area */
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.rounded-20 img {
+   width: 100%;
+    display: block;
+    transition: transform 6s linear;
+}
+
+.rounded-20:hover img {
+    transform: translateY(calc(-100% + 400px));
 }
 
 .rounded-40 {
@@ -1902,10 +1916,16 @@ only screen and (min-width: 1441px) {
   background-color: #FFFFFF;
 }
 
+.topad {
+  padding-top: 110px;
+}
+
 .skills-tab-contents {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(1, minmax(0, 1fr));
+  /* padding-top: 70px; */
+  
 }
 
 @media only screen and (min-width: 576px) {
