@@ -3,7 +3,7 @@
 
   // Initialize Lenis Smooth Scroll
   let lenis;
-  
+
   function initLenis() {
     if (typeof Lenis !== 'undefined') {
       try {
@@ -37,9 +37,9 @@
   }
 
   // Wait for DOM to be ready
-  $(document).ready(function() {
+  $(document).ready(function () {
     initLenis();
-    
+
     // Initialize after DOM is ready
     initializePageFeatures();
   });
@@ -122,65 +122,65 @@
     }
 
     if ($(".play-button").elExists()) {
-    $(".play-button").magnificPopup({
-      disableOn: 700,
-      type: "iframe",
-      mainClass: "mfp-fade",
-      removalDelay: 160,
-      preloader: true,
-      fixedContentPos: true,
-    });
-  }
-
-
-
-
-  if ($(".counter").elExists()) {
-    const counterUp = window.counterUp.default
-
-    const callback = entries => {
-      entries.forEach(entry => {
-        const el = entry.target
-        if (entry.isIntersecting && !el.classList.contains('is-visible')) {
-          counterUp(el, {
-            duration: 3000,
-            delay: 15,
-          })
-          el.classList.add('is-visible')
-        }
-      })
+      $(".play-button").magnificPopup({
+        disableOn: 700,
+        type: "iframe",
+        mainClass: "mfp-fade",
+        removalDelay: 160,
+        preloader: true,
+        fixedContentPos: true,
+      });
     }
 
-    const IO = new IntersectionObserver(callback, { threshold: 1 })
-
-    const el = document.querySelector('.counter')
-    IO.observe(el)
-  }
 
 
 
-  // You can also pass an optional settings object
-  // below listed default settings
+    if ($(".counter").elExists()) {
+      const counterUp = window.counterUp.default
+
+      const callback = entries => {
+        entries.forEach(entry => {
+          const el = entry.target
+          if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+            counterUp(el, {
+              duration: 3000,
+              delay: 15,
+            })
+            el.classList.add('is-visible')
+          }
+        })
+      }
+
+      const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+      const el = document.querySelector('.counter')
+      IO.observe(el)
+    }
+
+
+
+    // You can also pass an optional settings object
+    // below listed default settings
     AOS.init({
-    // Global settings:
-    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-    initClassName: 'aos-init', // class applied after initialization
-    animatedClassName: 'aos-animate', // class applied on animation
-    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
 
 
-    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-    offset: 120, // offset (in px) from the original trigger point
-    delay: 100, // values from 0 to 3000, with step 50ms
-    duration: 600, // values from 0 to 3000, with step 50ms
-    easing: 'ease', // default easing for AOS animations
-    once: true, // whether animation should happen only once - while scrolling down
-    mirror: false, // whether elements should animate out while scrolling past them
-    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 120, // offset (in px) from the original trigger point
+      delay: 100, // values from 0 to 3000, with step 50ms
+      duration: 600, // values from 0 to 3000, with step 50ms
+      easing: 'ease', // default easing for AOS animations
+      once: true, // whether animation should happen only once - while scrolling down
+      mirror: false, // whether elements should animate out while scrolling past them
+      anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
     });
     /*---------------------------------
@@ -298,3 +298,78 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
+
+
+
+
+// !carisel
+
+(function () {
+    if (window.innerWidth > 768) return;
+
+    const track = document.querySelector('.blog-track');
+    const items = document.querySelectorAll('.blog-item');
+    const dotsContainer = document.querySelector('.blog-dots');
+    const prevBtn = document.querySelector('.blog-prev');
+    const nextBtn = document.querySelector('.blog-next');
+
+    if (!track || items.length === 0 || !dotsContainer || !prevBtn || !nextBtn) return;
+
+    const total = items.length;
+
+    if (dotsContainer.children.length === 0) {
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'blog-dot' + (i === 0 ? ' active' : '');
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    const dots = document.querySelectorAll('.blog-dot');
+    let current = 0;
+    let autoScrollTimer;
+
+    function goTo(index) {
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        current = index;
+
+        track.style.transform = `translateX(-${current * 100}%)`;
+
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[current]) dots[current].classList.add('active');
+    }
+
+    function startAutoScroll() {
+        autoScrollTimer = setInterval(() => {
+            goTo(current + 1);
+        }, 3000); // changes every 3 seconds
+    }
+
+    function resetAutoScroll() {
+        clearInterval(autoScrollTimer);
+        startAutoScroll();
+    }
+
+    prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoScroll(); });
+    nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoScroll(); });
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { goTo(i); resetAutoScroll(); });
+    });
+
+    // Swipe support
+    let startX = 0;
+
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+    track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (diff > 50) { goTo(current + 1); resetAutoScroll(); }
+        if (diff < -50) { goTo(current - 1); resetAutoScroll(); }
+    });
+
+    // Start auto scroll
+    startAutoScroll();
+
+})();

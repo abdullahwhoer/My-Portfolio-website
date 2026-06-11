@@ -3,6 +3,7 @@
 /*----------------------------------------*/
 /* Common Style */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Ballet:opsz@16..72&family=Syne:wght@400..800&family=Unbounded:wght@200..900&display=swap');
+
 *,
 *::after,
 *::before {
@@ -31,21 +32,21 @@ body {
 
 /* ! LOader */
 #loader {
-    position: fixed;
-    inset: 0;
-    background: white;
-    z-index: 99999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #loader.hide {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* From Uiverse.io by Juanes200122 */ 
+/* From Uiverse.io by Juanes200122 */
 .pl {
   width: 6em;
   height: 6em;
@@ -73,10 +74,12 @@ body {
   animation-name: ringD;
   stroke: #000000;
 }
-  
-  /* Animations */
+
+/* Animations */
 @keyframes ringA {
-  from, 4% {
+
+  from,
+  4% {
     stroke-dasharray: 0 660;
     stroke-width: 20;
     stroke-dashoffset: -330;
@@ -94,7 +97,8 @@ body {
     stroke-dashoffset: -595;
   }
 
-  40%, 54% {
+  40%,
+  54% {
     stroke-dasharray: 0 660;
     stroke-width: 20;
     stroke-dashoffset: -660;
@@ -112,7 +116,8 @@ body {
     stroke-dashoffset: -925;
   }
 
-  90%, to {
+  90%,
+  to {
     stroke-dasharray: 0 660;
     stroke-width: 20;
     stroke-dashoffset: -990;
@@ -120,7 +125,9 @@ body {
 }
 
 @keyframes ringB {
-  from, 12% {
+
+  from,
+  12% {
     stroke-dasharray: 0 220;
     stroke-width: 20;
     stroke-dashoffset: -110;
@@ -138,7 +145,8 @@ body {
     stroke-dashoffset: -195;
   }
 
-  48%, 62% {
+  48%,
+  62% {
     stroke-dasharray: 0 220;
     stroke-width: 20;
     stroke-dashoffset: -220;
@@ -156,7 +164,8 @@ body {
     stroke-dashoffset: -305;
   }
 
-  98%, to {
+  98%,
+  to {
     stroke-dasharray: 0 220;
     stroke-width: 20;
     stroke-dashoffset: -330;
@@ -182,7 +191,8 @@ body {
     stroke-dashoffset: -175;
   }
 
-  36%, 58% {
+  36%,
+  58% {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: -220;
@@ -200,7 +210,8 @@ body {
     stroke-dashoffset: -395;
   }
 
-  94%, to {
+  94%,
+  to {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: -440;
@@ -208,7 +219,9 @@ body {
 }
 
 @keyframes ringD {
-  from, 8% {
+
+  from,
+  8% {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: 0;
@@ -226,7 +239,8 @@ body {
     stroke-dashoffset: -175;
   }
 
-  44%, 50% {
+  44%,
+  50% {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: -220;
@@ -244,7 +258,8 @@ body {
     stroke-dashoffset: -395;
   }
 
-  86%, to {
+  86%,
+  to {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: -440;
@@ -265,24 +280,24 @@ h6 {
 }
 
 .logos-had>h5 {
-   /* color: #F0AF40; */
-   font-family: 'Anton' ,sans-serif;
-   font-weight: 500;
-   text-transform: uppercase;
-   color: #151515;
+  /* color: #F0AF40; */
+  font-family: 'Anton', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #151515;
 }
 
 .logos-had {
   display: flex;
   gap: 10px;
-  align-items:start;
-  
+  align-items: start;
+
 }
 
 .logos-had-w {
   display: flex;
   gap: 10px;
-  align-items:start;
+  align-items: start;
 }
 
 
@@ -1049,16 +1064,17 @@ a {
 
 .rounded-20 {
   border-radius: 20px;
-   height: 400px; /* visible area */
-    overflow: hidden;
-    border-radius: 10px;
-    position: relative;
+  height: 400px;
+  /* visible area */
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
 }
 
 .rounded-20 img {
-   width: 100%;
-    display: block;
-    transition: transform 6s linear;
+  width: 100%;
+  display: block;
+  transition: transform 6s linear;
 }
 
 .about-img {
@@ -1073,9 +1089,7 @@ a {
 
 }
 
-.about-img:hover {
-  scale: 1.1;
-}
+
 
 .about-img img {
   width: 100%;
@@ -1088,7 +1102,7 @@ a {
 }
 
 .rounded-20:hover img {
-    transform: translateY(calc(-100% + 400px));
+  transform: translateY(calc(-100% + 400px));
 }
 
 .rounded-40 {
@@ -1703,11 +1717,42 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
   }
 }
 
+@media only screen and (max-width: 991px) {
+  #lets {
+    display: none;
+  }
+
+
+
+
+}
+
+
+
 .animate-spin {
   transform-origin: center;
   -webkit-animation: animateSpin 7s linear infinite;
   animation: animateSpin 7s linear infinite;
 }
+
+@media (max-width: 767px) {
+    #lets {
+        display: none !important;
+    }
+}
+
+    .hero-title {
+    font-size: clamp(4.5rem, 15vw, 5.9rem);
+    font-weight: 700 !important;
+    /* line-height: 1; */
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    /* border: 2px solid red; */
+}
+
+
+
 
 @-webkit-keyframes animateSpin {
   0% {
@@ -1737,7 +1782,98 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
   .social-links {
     margin-top: 0;
   }
+
+  
 }
+
+@media (max-width: 767px) {
+  .about-img {
+    margin-bottom: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+
+    /* Outer wrapper - clips the cards */
+    .blog-grid {
+        overflow: hidden;
+        display: block;
+        position: relative;
+    }
+
+    /* Inner track - all cards in one row */
+    .blog-track {
+        display: flex;
+        transition: transform 0.4s ease;
+        will-change: transform;
+    }
+
+    /* Each card - full width */
+    .blog-item {
+        flex: 0 0 100%;
+        min-width: 100%;
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+
+    /* Controls */
+    .blog-carousel-controls {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 20px;
+    }
+
+    .blog-prev,
+    .blog-next {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 2px solid #f5a623;
+        background: transparent;
+        color: #f5a623;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .blog-prev:hover,
+    .blog-next:hover {
+        background: #f5a623;
+        color: #fff;
+    }
+
+    .blog-dots {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .blog-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ccc;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .blog-dot.active {
+        width: 22px;
+        border-radius: 4px;
+        background: #f5a623;
+    }
+}
+
+.blog-carousel-controls {
+    display: none;
+}
+
+/*  */
+
 
 .social-links ul {
   -moz-column-gap: 16px;
@@ -2173,7 +2309,7 @@ only screen and (min-width: 1441px) {
   gap: 20px;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   /* padding-top: 70px; */
-  
+
 }
 
 @media only screen and (min-width: 576px) {
@@ -2413,6 +2549,35 @@ only screen and (min-width: 1441px) {
 only screen and (min-width: 1441px) {
   .blog-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .blog-grid {
+    display: block !important;
+    overflow: hidden;
+  }
+
+  .blog-grid .blog-track {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.4s ease;
+    width: 100%;
+  }
+
+  .blog-grid .blog-item {
+    flex: 0 0 100%;
+    min-width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+
+  .blog-carousel-controls {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
   }
 }
 
