@@ -598,24 +598,7 @@ only screen and (min-width: 1441px) {
   font-size: 32px;
 }
 
-.circle-shape,
-.section-title.circle-shape {
-  z-index: 1;
-}
 
-.circle-shape::before,
-.section-title.circle-shape::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  content: "";
-  display: block;
-  background-color: #FFB646;
-  border-radius: 100%;
-  width: 70px;
-  height: 70px;
-}
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
@@ -1570,14 +1553,67 @@ only screen and (min-width: 1441px) {
 .hero-title {
   color: #000000;
   font-size: clamp(3rem, 10vw, 5.5rem);
-  line-height: 0.85;
+  line-height: 1.1;
   font-weight: 700 !important;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+  overflow: visible;
+   max-width: 100%; 
+  /* border: 1px solid red; */ 
+  position: relative;
 }
 
+h2.hero-title {
+  z-index: 999;
+}
+.circle-shape,
+.section-title.circle-shape {
+  z-index: -23;
+}
+
+.circle-shape::before,
+.section-title.circle-shape::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: "";
+  display: block;
+  background-color: #FFB646;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+ 
+}
+
+h1.circle-shape::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: "";
+  display: block;
+  background-color: #FFB646;
+  border-radius: 100%;
+  width: 95px;
+  height: 95px;
+  transform: translateY(21px);
+}
+
+@media (max-width: 768px) {
+  h1.circle-shape::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: "";
+  display: block;
+  background-color: #FFB646;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  transform: translateY(1px);
+}
+}
 .footer-nam {
   color: #ED922B;
 }
@@ -1610,7 +1646,7 @@ h1.footer-titles {
   }
   .hero-title {
     font-size: 80px;
-    line-height: 0.85;
+    line-height: 1.15;
   }
 }
 
@@ -1620,14 +1656,14 @@ h1.footer-titles {
   }
   .hero-title {
     font-size: 110px;
-    line-height: 0.85;
+    line-height: 1.15;
   }
 }
 
 @media only screen and (min-width: 1441px) {
   .hero-title {
     font-size: 140px;
-    line-height: 0.85;
+    line-height: 1.15;
   }
 }
 
