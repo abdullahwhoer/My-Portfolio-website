@@ -593,6 +593,16 @@ only screen and (min-width: 1441px) {
 .text-2xl {
   font-size: 24px;
 }
+ @media (max-width: 768px) {
+  .text-2xl {
+  font-size: 18px;
+  color: red;
+}
+
+.megail {
+  font-size: 14px; 
+}
+ }
 
 .text-32 {
   font-size: 32px;
@@ -1552,7 +1562,7 @@ only screen and (min-width: 1441px) {
 
 .hero-title {
   color: #000000;
-  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-size: clamp(3rem, 10vw, .5rem);
   line-height: 0.75;
   font-weight: 700 !important;
   white-space: nowrap;
@@ -1600,7 +1610,7 @@ h1.circle-shape::before {
 }
 
 @media (max-width: 768px) {
-  .circle-shape::before {
+  h1.circle-shape::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -1613,6 +1623,24 @@ h1.circle-shape::before {
   height: 60px;
   transform: translateY(-11px);
 }
+
+  
+.circle-shape::before,
+.section-title.circle-shape::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: "";
+  display: block;
+  background-color: #FFB646;
+  border-radius: 100%;
+  width: 55px;
+  height: 55px;
+  transform: translateY(-2px);
+ 
+}
+
 }
 .footer-nam {
   color: #ED922B;
@@ -1903,6 +1931,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 /*  */
 
 
+
 .social-links ul {
   -moz-column-gap: 16px;
   column-gap: 16px;
@@ -1910,6 +1939,15 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 
 .social-links a:hover {
   color: #FF9330 !important;
+}
+
+.social-links ul li:last-child a svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.social-links ul li:last-child a svg path {
+  fill: black !important;
 }
 
 .service-card {
